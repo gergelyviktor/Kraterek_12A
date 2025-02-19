@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,20 @@ namespace Kraterek_12A {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+        List<Krater> lista = new List<Krater>();
         public MainWindow() {
             InitializeComponent();
+            beolvas();
+        }
+
+        private void beolvas() {
+            using (var sr = new StreamReader("felszin.txt")) {
+                while (!sr.EndOfStream) {
+                    var sor = sr.ReadLine().Split('\t');
+                    var krater = new Krater(double.Parse(sor[0]), double.Parse(sor[1]), double.Parse(sor[2]), sor[3]);
+                    lista.Add(krater);
+                }
+            }
         }
     }
 }
