@@ -26,8 +26,18 @@ namespace Kraterek_12A {
             beolvas();
             // 2. feladat
             label2.Content = "2. feladat\n" + lista.Count;
+            //var max = lista.Max(item => item.R);
+            // 4. feladat
+            var max = lista[0].R;
+            var nev = lista[0].Nev;
+            foreach (var item in lista) {
+                if (item.R > max) {
+                    max = item.R;
+                    nev = item.Nev;
+                }
+            }
+            label4.Content = $"A legnagyobb kráter neve és sugara: {nev}, {max}";
 
-            //var max = lista.Max(x => x.R);
         }
 
         private void beolvas() {
