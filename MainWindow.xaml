@@ -14,6 +14,7 @@
         <Label x:Name="label4" Content="Label" HorizontalAlignment="Left" Margin="37,156,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="37,201,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox1_SelectionChanged"/>
         <Label x:Name="label6" Content="" HorizontalAlignment="Left" Margin="207,201,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dataGrid1" Margin="342,194,138,58"/>
 
     </Grid>
 </Window>

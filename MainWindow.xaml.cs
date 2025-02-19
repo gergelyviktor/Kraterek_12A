@@ -100,6 +100,8 @@ namespace Kraterek_12A {
                 }
             }
             label6.Content = "";
+            dataGrid1.Items.Clear();
+            dataGrid1.ItemsSource = lista;
             foreach (var item in lista) {
                 if (tavolsag(x, y, item.X, item.Y) > (r + item.R)) {
                     label6.Content += item.Nev + "\n";
