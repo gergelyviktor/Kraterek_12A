@@ -26,6 +26,8 @@ namespace Kraterek_12A {
             beolvas();
             // 2. feladat
             label2.Content = "2. feladat\n" + lista.Count;
+
+            //var max = lista.Max(x => x.R);
         }
 
         private void beolvas() {
@@ -37,5 +39,24 @@ namespace Kraterek_12A {
                 }
             }
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e) {
+            // 3. feladat
+            var index = -1;
+            foreach (var item in lista) {
+                if (item.Nev == textBox1.Text) {
+                    // megvan
+                    index = lista.IndexOf(item);
+                    break;
+                }
+            }
+            if (index >= 0) {
+                label3.Content = lista[index].ToString();
+                // $"A(z) {item.Nev} középpontja X={item.X} Y={item.Y} sugara R={item.R}."
+            }
+            else
+                label3.Content = "Nincs ilyen nevű kráter!";
+        }
     }
 }
+
