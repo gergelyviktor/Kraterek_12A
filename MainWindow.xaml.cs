@@ -37,7 +37,25 @@ namespace Kraterek_12A {
                 }
             }
             label4.Content = $"A legnagyobb kráter neve és sugara: {nev}, {max}";
+            //double tav = tavolsag(100.0,50.0,200.0,80.0);
+            // 6. feladat
+            //combobox1.ItemsSource = lista;
+            foreach (var item in lista) {
+                comboBox1.Items.Add(item.Nev);
+            }
+            // 8. feladat - fájlba írás
+            using (var sw = new StreamWriter("terulet.txt")) {
+                foreach (var item in lista) {
+                    var terulet = item.R * item.R * Math.PI;
+                    sw.WriteLine(Math.Round(terulet, 2) + "\t" + item.Nev);
+                }
+            }
+        }
 
+
+        // 5. feladat
+        private double tavolsag(double x1, double y1, double x2, double y2) {
+            return Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
         }
 
         private void beolvas() {
@@ -66,6 +84,28 @@ namespace Kraterek_12A {
             }
             else
                 label3.Content = "Nincs ilyen nevű kráter!";
+        }
+
+        private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            // 6. feladat
+            var x = -1.0;
+            var y = -1.0;
+            var r = -1.0;
+            foreach (var item in lista) {
+                if (item.Nev == comboBox1.SelectedItem.ToString()) {
+                    x = item.X;
+                    y = item.Y;
+                    r = item.R;
+                    break;
+                }
+            }
+            label6.Content = "";
+            foreach (var item in lista) {
+                if (tavolsag(x, y, item.X, item.Y) > (r + item.R)) {
+                    label6.Content += item.Nev + "\n";
+                }
+
+            }
         }
     }
 }
