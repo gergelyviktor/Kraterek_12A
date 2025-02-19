@@ -22,7 +22,10 @@ namespace Kraterek_12A {
         List<Krater> lista = new List<Krater>();
         public MainWindow() {
             InitializeComponent();
+            // 1. feladat
             beolvas();
+            // 2. feladat
+            label2.Content = "2. feladat\n" + lista.Count;
         }
 
         private void beolvas() {
